@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>interval user manual</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id$
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="interval-user-manual">
+<h1 class="title">interval user manual</h1>
+
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><strong>Title</strong></td>
+<td>interval (Interval arithmetic API for ANSI C)</td>
+</tr>
+<tr><td><strong>Author</strong></td>
+<td>Nikolaos Kavvadias (C) 2009, 2010, 2011, 2012, 2013,
+2014</td>
+</tr>
+<tr><td><strong>Contact</strong></td>
+<td><a class="reference external" href="mailto:nikos&#64;nkavvadias.com">nikos&#64;nkavvadias.com</a></td>
+</tr>
+<tr><td><strong>Website</strong></td>
+<td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
+</tr>
+<tr><td><strong>Release Date</strong></td>
+<td>20 September 2014</td>
+</tr>
+<tr><td><strong>Version</strong></td>
+<td>0.2.0</td>
+</tr>
+<tr><td><strong>Rev. history</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>v0.2.0</strong></td>
+<td><p class="first">2014-09-20</p>
+<p class="last">Updated for github; self-contained version not depending
+on external files (genmacros.h, utils.c, utils.h).</p>
+</td>
+</tr>
+<tr><td><strong>v0.1.2</strong></td>
+<td><p class="first">2009-08-11</p>
+<p class="last">Changes to IntervalIntersection in order to take account
+the case of produced empty intervals.</p>
+</td>
+</tr>
+<tr><td><strong>v0.1.1</strong></td>
+<td><p class="first">2009-07-23</p>
+<p class="last">Added: IntervalIsSymmetric, IntervalMod, IntervalSet,
+IntervalCopy, IntervalUniverse. Changed the vmax and vmin
+Interval struct fields to the more formal supr (supremum)
+and infm (infimum).</p>
+</td>
+</tr>
+<tr><td><strong>v0.1.0</strong></td>
+<td><p class="first">2009-07-22</p>
+<p class="last">Initial version. Implemented the backbone of the interval
+arithmetic API: INTERVAL, IntervalAdd, IntervalSub,
+IntervalNeg, IntervalMul, IntervalDiv, IntervalMux,
+IntervalAnd, IntervalIor, IntervalXor, IntervalNot,
+IntervalExpInteger, IntervalSqrt, IntervalAbs,
+IntervalMax, IntervalMin, IntervalUnion,
+IntervalIntersection, ValueIsInInterval, IntervalIsEmpty,
+IntervalIsPositive, IntervalIsNegative, ValueToInterval,
+IntervalBalanced, IntervalIsBalanced,
+IntegerBitwidthToInterval, IntervalToIntegerBitwidth,
+IntervalPrint.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="introduction">
+<h1>1. Introduction</h1>
+<p><tt class="docutils literal">interval</tt> is an ANSI C implementation of a basic interval arithmetic API.
+The implementation of intervals is partially based on:</p>
+<div class="line-block">
+<div class="line">H. Yamashita, H. Yasuura, F.N. Eko and C. Yun,</div>
+<div class="line">&quot;Variable Size Analysis and Validation of Computation Quality,&quot;</div>
+<div class="line">Proceedings of the IEEE International High-Level Design Validation and Test</div>
+<div class="line">Workshop 2000, pp. 95--100, Berkeley, California, USA, November 8-10, 2000.</div>
+</div>
+<p>The draft of the reference paper is available (as of 2014-Sep-20) from:
+- <a class="reference external" href="http://soc.ait.kyushu-u.ac.jp/AnnualReport/pdf/rep00/Yamashita2.pdf">http://soc.ait.kyushu-u.ac.jp/AnnualReport/pdf/rep00/Yamashita2.pdf</a></p>
+</div>
+<div class="section" id="file-listing">
+<h1>2. File listing</h1>
+<p>The <tt class="docutils literal">interval</tt> ADT and API code base includes the following files:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>/interval</td>
+<td>Top-level directory</td>
+</tr>
+<tr><td>AUTHORS</td>
+<td>List of authors.</td>
+</tr>
+<tr><td>LICENSE</td>
+<td>License argeement (Modified BSD license).</td>
+</tr>
+<tr><td>Makefile</td>
+<td>GNU Makefile for building <tt class="docutils literal"><span class="pre">test-interval.exe</span></tt>.</td>
+</tr>
+<tr><td>README.rst</td>
+<td>This file.</td>
+</tr>
+<tr><td>README.html</td>
+<td>HTML version of README.</td>
+</tr>
+<tr><td>README.pdf</td>
+<td>PDF version of README.</td>
+</tr>
+<tr><td>VERSION</td>
+<td>Current version.</td>
+</tr>
+<tr><td>interval.c</td>
+<td>C code implementing the Interval API along with some
+helper functions.</td>
+</tr>
+<tr><td>interval.h</td>
+<td>C header file for the above. Also defines some
+arithmetic macros needed.</td>
+</tr>
+<tr><td>rst2docs.sh</td>
+<td>Bash script for generating the HTML and PDF versions.</td>
+</tr>
+<tr><td>test-interval.c</td>
+<td>Application code for exercising basic functionality
+of the implemented interval API.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="function-reference">
+<h1>3. Function reference</h1>
+<p>This section provides a quick reference of the functions used for implementing
+the <tt class="docutils literal">interval</tt> API.</p>
+<div class="section" id="interval">
+<h2>3.1. INTERVAL</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval INTERVAL(int u, int v);</tt></div>
+</div>
+<p>Construct an interval specified by a minimum (u) and a maximum (v) integer
+value. Values u and v are considered to be included in the interval.</p>
+</div>
+<div class="section" id="intervalcopy">
+<h2>3.2. IntervalCopy</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalCopy(Interval x);</tt></div>
+</div>
+<p>Return a copy of the given input interval.</p>
+</div>
+<div class="section" id="intervalempty">
+<h2>3.3. IntervalEmpty</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalEmpty(void);</tt></div>
+</div>
+<p>Return an empty interval; interval [1,0] is produced.</p>
+</div>
+<div class="section" id="intervaluniverse">
+<h2>3.4. IntervalUniverse</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalUniverse(int bw, ArithType ztyp);</tt></div>
+</div>
+<p>Returns the entire interval for a given arithmetic representation type (ztyp)
+and for the specified bitwidth (bw).</p>
+</div>
+<div class="section" id="intervalclamp">
+<h2>3.5. IntervalClamp</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalClamp(Interval x, int lo, int hi);</tt></div>
+</div>
+<p>Return a saturated version of the given interval for the specified lower (lo)
+and higher (hi) bounds.</p>
+</div>
+<div class="section" id="intervaladd">
+<h2>3.6 IntervalAdd</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalAdd(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of adding the intervals of two integers.</p>
+</div>
+<div class="section" id="intervalsub">
+<h2>3.7 IntervalSub</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalSub(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of performing subtraction on two integer
+intervals.</p>
+</div>
+<div class="section" id="intervalneg">
+<h2>3.8 IntervalNeg</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalNeg(Interval x);</tt></div>
+</div>
+<p>Return a negated interval by negating the supremum and infimum fields.</p>
+</div>
+<div class="section" id="intervalmul">
+<h2>3.9 IntervalMul</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalMul(Interval x, Interval y, ArithType xtyp, ArithType ytyp);</tt></div>
+</div>
+<p>Return the interval of the result of performing multiplication on two integer
+intervals. The result is not truncated. xtyp, ytyp provide the arithmetic
+representation type for x and y, respectively.</p>
+</div>
+<div class="section" id="intervaldiv">
+<h2>3.10 IntervalDiv</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalDiv(Interval x, Interval y, ArithType xtyp, ArithType ytyp);</tt></div>
+</div>
+<p>Return the interval of the result of performing division (quotient only) between
+two integer intervals. xtyp, ytyp provide the arithmetic representation type for
+x and y, respectively.</p>
+</div>
+<div class="section" id="intervalmod">
+<h2>3.11 IntervalMod</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalMod(Interval x, Interval y, ArithType xtyp);</tt></div>
+</div>
+<p>Return the interval of the result of performing the modulus on two integer
+intervals. xtyp provides the arithmetic representation type for x.</p>
+</div>
+<div class="section" id="intervalmux">
+<h2>3.12 IntervalMux</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalMux(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of z = ((a) relop (b) ? (x) : (y)), where
+relop is a relational operator:
+- &quot;==&quot; (muxeq),
+- &quot;!=&quot; (muxne),
+- &quot;&lt;&quot; (muxlt),
+- &quot;&lt;=&quot; (muxle),
+- &quot;&gt;&quot; (muxgt),
+- &quot;&gt;=&quot; (muxge)</p>
+</div>
+<div class="section" id="intervalset">
+<h2>3.13 IntervalSet</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalSet(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of z = x relop y, where relop is a
+relational operator:
+- &quot;==&quot; (seteq),
+- &quot;!=&quot; (setne),
+- &quot;&lt;&quot; (setlt),
+- &quot;&lt;=&quot; (setle),
+- &quot;&gt;&quot; (setgt),
+- &quot;&gt;=&quot; (setge)</p>
+</div>
+<div class="section" id="intervaland">
+<h2>3.14 IntervalAnd</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalAnd(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of z = x AND y.</p>
+</div>
+<div class="section" id="intervalior">
+<h2>3.15 IntervalIor</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalIor(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of z = x IOR y.</p>
+</div>
+<div class="section" id="intervalxor">
+<h2>3.16 IntervalXor</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalXor(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of z = x XOR y.</p>
+</div>
+<div class="section" id="intervalnot">
+<h2>3.17 IntervalNot</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalNot(Interval x);</tt></div>
+</div>
+<p>Return the interval of the result of z = NOT x.</p>
+</div>
+<div class="section" id="intervalexpinteger">
+<h2>3.18 IntervalExpInteger</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalExpInteger(Interval x, int n);</tt></div>
+</div>
+<p>Return the interval of the result of z = x ** n (n-th integer power of x).
+n is an integer and its interval representation is [n,n].</p>
+</div>
+<div class="section" id="intervalsqrt">
+<h2>3.19 IntervalSqrt</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalSqrt(Interval x);</tt></div>
+</div>
+<p>Return the interval of the result of z = sqrt(x).</p>
+</div>
+<div class="section" id="intervalabs">
+<h2>3.20 IntervalAbs</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalAbs(Interval x);</tt></div>
+</div>
+<p>Return the interval of the result of computing the absolute value of interval
+x: z = abs(x).</p>
+</div>
+<div class="section" id="intervalmax">
+<h2>3.21 IntervalMax</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalMax(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of computing the maximum value of intervals
+x and y: z = max(x, y).</p>
+</div>
+<div class="section" id="intervalmin">
+<h2>3.22 IntervalMin</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalMin(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the interval of the result of computing the minimum value of intervals
+x and y: z = min(x, y).</p>
+</div>
+<div class="section" id="intervalunion">
+<h2>3.23 IntervalUnion</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalUnion(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the union (actually the so-called &quot;interval hull&quot; which produces a
+contiguous interval) of intervals x and y. The union operator formally
+produces two distinct intervals.</p>
+</div>
+<div class="section" id="intervalintersection">
+<h2>3.24 IntervalIntersection</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalIntersection(Interval x, Interval y);</tt></div>
+</div>
+<p>Return the intersection of intervals x and y. In case the intersection of
+x and y is the empty interval, the [1,0] interval (the default empty
+interval) is returned.</p>
+</div>
+<div class="section" id="valueisininterval">
+<h2>3.24 ValueIsInInterval</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">int ValueIsInInterval(Interval x, int v);</tt></div>
+</div>
+<p>Query whether the given value v is in interval x or not.
+Returns 1 if v is in x; 0 otherwise.</p>
+</div>
+<div class="section" id="intervalisempty">
+<h2>3.25 IntervalIsEmpty</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">int IntervalIsEmpty(Interval x);</tt></div>
+</div>
+<p>Query whether the given interval is an empty set (i.e. containing no values).
+Returns 1 if the interval x is empty; 0 otherwise.</p>
+</div>
+<div class="section" id="intervalispositive">
+<h2>3.26 IntervalIsPositive</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">int IntervalIsPositive(Interval x);</tt></div>
+</div>
+<p>Query whether the given interval is strictly positive (i.e. lies in the
+domain of positive integers). The interval may contain integer ZERO.
+Returns 1 if the interval x is positive; 0 otherwise.</p>
+</div>
+<div class="section" id="intervalisnegative">
+<h2>3.27 IntervalIsNegative</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">int IntervalIsNegative(Interval x);</tt></div>
+</div>
+<p>Query whether the given interval is strictly negative (i.e. lies in the
+domain of negative integers). The interval may contain integer ZERO.
+Returns 1 if the interval x is negative; 0 otherwise.</p>
+</div>
+<div class="section" id="valuetointerval">
+<h2>3.28 ValueToInterval</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval ValueToInterval(int v);</tt></div>
+</div>
+<p>Convert a given integer value v to a degenerate interval of the form [v,v].
+Returns the computed interval.</p>
+</div>
+<div class="section" id="intervalbalanced">
+<h2>3.29 IntervalBalanced</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntervalBalanced(Interval x, ArithType xtyp);</tt></div>
+</div>
+<p>Given an &quot;unbalanced&quot; interval (of the form <tt class="docutils literal">[m,n]</tt>, where <tt class="docutils literal"><span class="pre">m!=n</span></tt> and
+<tt class="docutils literal">m,n&gt;0</tt> or <tt class="docutils literal"><span class="pre">m&lt;0&lt;=n</span></tt> and <tt class="docutils literal"><span class="pre">|m|=n+1</span></tt>), it is converted to a &quot;balanced&quot;
+interval of the form <tt class="docutils literal"><span class="pre">[0,2^n-1]</span></tt> for unsigned or <tt class="docutils literal"><span class="pre">[-2^(n-1),2^(n-1)+1]</span></tt> for
+signed integer arithmetic.
+xtyp provides the arithmetic type for the assumed integer arithmetic.</p>
+</div>
+<div class="section" id="intervalisbalanced">
+<h2>3.30 IntervalIsBalanced</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">int IntervalIsBalanced(Interval x, ArithType xtyp);</tt></div>
+</div>
+<p>Query whether the given interval is balanced, i.e. <tt class="docutils literal"><span class="pre">[0,2^n-1]</span></tt> for unsigned
+or <tt class="docutils literal"><span class="pre">[-2^(n-1),2^(n-1)+1]</span></tt> for signed integer arithmetic.
+Returns 1 if the interval x is balanced; 0 otherwise.</p>
+</div>
+<div class="section" id="intervalissymmetric">
+<h2>3.31 IntervalIsSymmetric</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">int IntervalIsSymmetric(Interval x);</tt></div>
+</div>
+<p>Query whether the given interval is symmetric, i.e. [-n,n] for any given
+arithmetic (even a non fixed-point one).
+Returns 1 if the interval x is symmetric; 0 otherwise.</p>
+<p>NOTE: For non-exact arithmetic representations, the comparison operation
+should be carefully designed.</p>
+</div>
+<div class="section" id="integerbitwidthtointerval">
+<h2>3.32 IntegerBitwidthToInterval</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">Interval IntegerBitwidthToInterval(int n, ArithType xtyp);</tt></div>
+</div>
+<p>Convert the bitwidth of a signed (2's complement) or unsigned integer number
+to the corresponding interval. A bitwidth of n-bits would be converted to
+[0,2**n-1] for an unsigned integer or [-2**(n-1),2**(n-1)-1] for a signed
+integer.
+xtyp provides the arithmetic type for the assumed integer.</p>
+</div>
+<div class="section" id="intervaltointegerbitwidth">
+<h2>3.33 IntervalToIntegerBitwidth</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">int IntervalToIntegerBitwidth(Interval x, ArithType xtyp);</tt></div>
+</div>
+<p>Convert the given interval to the corresponding minimum bitwidth necessary
+for the representation of signed (2's complement) or unsigned integers.
+xtyp provides the arithmetic type for the assumed integer representation.</p>
+</div>
+<div class="section" id="intervalprint">
+<h2>3.34 IntervalPrint</h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">void IntervalPrint(FILE *outfile, Interval x);</tt></div>
+</div>
+<p>Print the specified interval to outfile.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h1>4. Usage</h1>
+<p>The implementation of the interval API can be used in context of a provided test
+application, named <tt class="docutils literal"><span class="pre">test-interval.c</span></tt>. The Makefile can be used for building
+this application as follows:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ cd interval</tt></div>
+<div class="line"><tt class="docutils literal">$ make clean ; make</tt></div>
+</div>
+<p>To run the application do the following:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">./test-interval.exe</span></tt></div>
+</div>
+<p>Executing the application will produce a stream of diagnostic messages to
+standard output.</p>
+</div>
+<div class="section" id="prerequisities">
+<h1>5. Prerequisities</h1>
+<ul>
+<li><p class="first">Standard UNIX-based tools (tested with gcc-4.6.2 on MinGW/x86 and gcc-4.8.2
+on Cygwin/x86/Windows 7)</p>
+<ul class="simple">
+<li>make</li>
+</ul>
+<p>On Windows (e.g. Windows 7, 64-bit), MinGW (<a class="reference external" href="http://www.mingw.org">http://www.mingw.org</a>) or Cygwin
+(<a class="reference external" href="http://sources.redhat.com/cygwin">http://sources.redhat.com/cygwin</a>) are suggested.</p>
+<p>The sources should be able to compile without any messages on any recent
+Linux distribution.</p>
+</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

@@ -124,8 +124,7 @@ Interval IntervalSub(Interval x, Interval y)
 }
 
 /* IntervalNeg: 
- * Return the interval of the result of performing subtraction on two integer 
- * intervals.
+ * Return a negated interval by negating the supremum and infimum fields.
  */
 Interval IntervalNeg(Interval x)
 {
@@ -178,8 +177,8 @@ Interval IntervalMul(Interval x, Interval y, ArithType xtyp, ArithType ytyp)
 }
 
 /* IntervalDiv: 
- * Return the interval of the result of performing multiplication on two integer 
- * intervals. The result is not truncated. xtyp, ytyp provide the arithmetic 
+ * Return the interval of the result of performing division (quotient only) 
+ * between two integer intervals. xtyp, ytyp provide the arithmetic 
  * representation type for x and y, respectively.
  */
 Interval IntervalDiv(Interval x, Interval y, ArithType xtyp, ArithType ytyp)
