@@ -12,11 +12,15 @@
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 20 September 2014                                        |
+| **Release Date**  | 21 September 2014                                        |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 0.2.0                                                    |
+| **Version**       | 0.2.1                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v0.2.1** | 2014-09-21                                               |
+|                   |                                                          |
+|                   | Minor style changes to README.rst.                       |
 +-------------------+----------------------------------------------------------+
 |        **v0.2.0** | 2014-09-20                                               |
 |                   |                                                          |
@@ -63,6 +67,7 @@ The implementation of intervals is partially based on:
 | Workshop 2000, pp. 95--100, Berkeley, California, USA, November 8-10, 2000.
 
 The draft of the reference paper is available (as of 2014-Sep-20) from: 
+
 - http://soc.ait.kyushu-u.ac.jp/AnnualReport/pdf/rep00/Yamashita2.pdf
 
 
@@ -200,6 +205,7 @@ intervals. xtyp provides the arithmetic representation type for x.
 
 Return the interval of the result of z = ((a) relop (b) ? (x) : (y)), where 
 relop is a relational operator: 
+
 - "==" (muxeq), 
 - "!=" (muxne), 
 - "<" (muxlt), 
@@ -214,6 +220,7 @@ relop is a relational operator:
 
 Return the interval of the result of z = x relop y, where relop is a 
 relational operator: 
+
 - "==" (seteq), 
 - "!=" (setne),
 - "<" (setlt), 

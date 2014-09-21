@@ -361,13 +361,18 @@ ul.auto-toc {
 <td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
 </tr>
 <tr><td><strong>Release Date</strong></td>
-<td>20 September 2014</td>
+<td>21 September 2014</td>
 </tr>
 <tr><td><strong>Version</strong></td>
-<td>0.2.0</td>
+<td>0.2.1</td>
 </tr>
 <tr><td><strong>Rev. history</strong></td>
 <td>&nbsp;</td>
+</tr>
+<tr><td><strong>v0.2.1</strong></td>
+<td><p class="first">2014-09-21</p>
+<p class="last">Minor style changes to README.rst.</p>
+</td>
 </tr>
 <tr><td><strong>v0.2.0</strong></td>
 <td><p class="first">2014-09-20</p>
@@ -416,8 +421,10 @@ The implementation of intervals is partially based on:</p>
 <div class="line">Proceedings of the IEEE International High-Level Design Validation and Test</div>
 <div class="line">Workshop 2000, pp. 95--100, Berkeley, California, USA, November 8-10, 2000.</div>
 </div>
-<p>The draft of the reference paper is available (as of 2014-Sep-20) from:
-- <a class="reference external" href="http://soc.ait.kyushu-u.ac.jp/AnnualReport/pdf/rep00/Yamashita2.pdf">http://soc.ait.kyushu-u.ac.jp/AnnualReport/pdf/rep00/Yamashita2.pdf</a></p>
+<p>The draft of the reference paper is available (as of 2014-Sep-20) from:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://soc.ait.kyushu-u.ac.jp/AnnualReport/pdf/rep00/Yamashita2.pdf">http://soc.ait.kyushu-u.ac.jp/AnnualReport/pdf/rep00/Yamashita2.pdf</a></li>
+</ul>
 </div>
 <div class="section" id="file-listing">
 <h1>2. File listing</h1>
@@ -566,13 +573,15 @@ intervals. xtyp provides the arithmetic representation type for x.</p>
 <div class="line"><tt class="docutils literal">Interval IntervalMux(Interval x, Interval y);</tt></div>
 </div>
 <p>Return the interval of the result of z = ((a) relop (b) ? (x) : (y)), where
-relop is a relational operator:
-- &quot;==&quot; (muxeq),
-- &quot;!=&quot; (muxne),
-- &quot;&lt;&quot; (muxlt),
-- &quot;&lt;=&quot; (muxle),
-- &quot;&gt;&quot; (muxgt),
-- &quot;&gt;=&quot; (muxge)</p>
+relop is a relational operator:</p>
+<ul class="simple">
+<li>&quot;==&quot; (muxeq),</li>
+<li>&quot;!=&quot; (muxne),</li>
+<li>&quot;&lt;&quot; (muxlt),</li>
+<li>&quot;&lt;=&quot; (muxle),</li>
+<li>&quot;&gt;&quot; (muxgt),</li>
+<li>&quot;&gt;=&quot; (muxge)</li>
+</ul>
 </div>
 <div class="section" id="intervalset">
 <h2>3.13 IntervalSet</h2>
@@ -580,13 +589,15 @@ relop is a relational operator:
 <div class="line"><tt class="docutils literal">Interval IntervalSet(Interval x, Interval y);</tt></div>
 </div>
 <p>Return the interval of the result of z = x relop y, where relop is a
-relational operator:
-- &quot;==&quot; (seteq),
-- &quot;!=&quot; (setne),
-- &quot;&lt;&quot; (setlt),
-- &quot;&lt;=&quot; (setle),
-- &quot;&gt;&quot; (setgt),
-- &quot;&gt;=&quot; (setge)</p>
+relational operator:</p>
+<ul class="simple">
+<li>&quot;==&quot; (seteq),</li>
+<li>&quot;!=&quot; (setne),</li>
+<li>&quot;&lt;&quot; (setlt),</li>
+<li>&quot;&lt;=&quot; (setle),</li>
+<li>&quot;&gt;&quot; (setgt),</li>
+<li>&quot;&gt;=&quot; (setge)</li>
+</ul>
 </div>
 <div class="section" id="intervaland">
 <h2>3.14 IntervalAnd</h2>
