@@ -2,12 +2,14 @@
  * Filename: interval.h
  * Purpose : Interval ADT definitions and function prototypes.
  * Author  : Nikolaos Kavvadias (C) 2009, 2010, 2011, 2012, 2013, 2014
- * Date    : 20-Sep-2014
- * Revision: 0.2.0 (20/09/14)
+ * Date    : 28-Oct-2014
+ * Revision: 0.2.1 (14/10/28)
+ *           Added names to prototype parameters.
+ *           0.2.0 (14/09/20)
  *           Added code from genmacros.h and utils.h in order to be 
  *           self-contained.
  *           Initial version.
- *           0.1.1 (23/07/09)
+ *           0.1.1 (09/07/23)
  *           Coping with modifications in "interval.c".
  */  
 #ifndef INTERVAL_H
@@ -26,7 +28,7 @@
 #define FLOOR(x)          ((int) (x))
 #define CEILING(x)        ((x)==FLOOR(x) ? FLOOR(x) : SIGNUM(x)+FLOOR(x))
 
-/* utils.h: Function prototypes. */
+/* Ported from utils.h: Function prototypes. */
 int   log2ceil(int);
 int   ipow(int, int);
 
@@ -49,40 +51,40 @@ typedef enum {
 } ArithType;
 
 /* Interval ADT API */
-Interval INTERVAL(int, int);
-Interval IntervalCopy(Interval);
+Interval INTERVAL(int u, int v);
+Interval IntervalCopy(Interval x);
 Interval IntervalEmpty(void);
-Interval IntervalUniverse(int, ArithType);
-Interval IntervalClamp(Interval, int, int);
-Interval IntervalAdd(Interval, Interval);
-Interval IntervalSub(Interval, Interval);
-Interval IntervalNeg(Interval);
-Interval IntervalMul(Interval, Interval, ArithType, ArithType);
-Interval IntervalDiv(Interval, Interval, ArithType, ArithType);
-Interval IntervalMod(Interval, Interval, ArithType);
-Interval IntervalMux(Interval, Interval);
-Interval IntervalSet(Interval, Interval);
-Interval IntervalAnd(Interval, Interval);
-Interval IntervalIor(Interval, Interval);
-Interval IntervalXor(Interval, Interval);
-Interval IntervalNot(Interval);
-Interval IntervalExpInteger(Interval, int);
-Interval IntervalSqrt(Interval);
-Interval IntervalAbs(Interval);
-Interval IntervalMax(Interval, Interval);
-Interval IntervalMin(Interval, Interval);
-Interval IntervalUnion(Interval, Interval);
-Interval IntervalIntersection(Interval, Interval);
-int      ValueIsInInterval(Interval, int);
-int      IntervalIsEmpty(Interval);
-int      IntervalIsPositive(Interval);
-int      IntervalIsNegative(Interval);
-Interval ValueToInterval(int);
-Interval IntervalBalanced(Interval, ArithType);
-int      IntervalIsBalanced(Interval, ArithType);
-int      IntervalIsSymmetric(Interval);
-Interval IntegerBitwidthToInterval(int, ArithType);
-int      IntervalToIntegerBitwidth(Interval, ArithType);
-void     IntervalPrint(FILE *, Interval);
+Interval IntervalUniverse(int bw, ArithType ztyp);
+Interval IntervalClamp(Interval x, int lo, int hi);
+Interval IntervalAdd(Interval x, Interval y);
+Interval IntervalSub(Interval x, Interval y);
+Interval IntervalNeg(Interval x);
+Interval IntervalMul(Interval x, Interval y, ArithType xtyp, ArithType ytyp);
+Interval IntervalDiv(Interval x, Interval y, ArithType xtyp, ArithType ytyp);
+Interval IntervalMod(Interval x, Interval y, ArithType xtyp);
+Interval IntervalMux(Interval x, Interval y);
+Interval IntervalSet(Interval x, Interval y);
+Interval IntervalAnd(Interval x, Interval y);
+Interval IntervalIor(Interval x, Interval y);
+Interval IntervalXor(Interval x, Interval y);
+Interval IntervalNot(Interval x);
+Interval IntervalExpInteger(Interval x, int n);
+Interval IntervalSqrt(Interval x);
+Interval IntervalAbs(Interval x);
+Interval IntervalMax(Interval x, Interval y);
+Interval IntervalMin(Interval x, Interval y);
+Interval IntervalUnion(Interval x, Interval y);
+Interval IntervalIntersection(Interval x, Interval y);
+int      ValueIsInInterval(Interval x, int v);
+int      IntervalIsEmpty(Interval x);
+int      IntervalIsPositive(Interval x);
+int      IntervalIsNegative(Interval x);
+Interval ValueToInterval(int v);
+Interval IntervalBalanced(Interval x, ArithType xtyp);
+int      IntervalIsBalanced(Interval x, ArithType xtyp);
+int      IntervalIsSymmetric(Interval x);
+Interval IntegerBitwidthToInterval(int n, ArithType xtyp);
+int      IntervalToIntegerBitwidth(Interval x, ArithType xtyp);
+void     IntervalPrint(FILE *outfile, Interval x);
 
 #endif /* INTERVAL_H */
