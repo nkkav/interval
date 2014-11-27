@@ -361,13 +361,18 @@ ul.auto-toc {
 <td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
 </tr>
 <tr><td><strong>Release Date</strong></td>
-<td>28 October 2014</td>
+<td>27 November 2014</td>
 </tr>
 <tr><td><strong>Version</strong></td>
-<td>0.2.2</td>
+<td>0.2.3</td>
 </tr>
 <tr><td><strong>Rev. history</strong></td>
 <td>&nbsp;</td>
+</tr>
+<tr><td><strong>v0.2.3</strong></td>
+<td><p class="first">2014-11-27</p>
+<p class="last">Removed subsection numbers in README.</p>
+</td>
 </tr>
 <tr><td><strong>v0.2.2</strong></td>
 <td><p class="first">2014-10-28</p>
@@ -487,7 +492,7 @@ of the implemented interval API.</td>
 <p>This section provides a quick reference of the functions used for implementing
 the <tt class="docutils literal">interval</tt> API.</p>
 <div class="section" id="interval">
-<h2>3.1. INTERVAL</h2>
+<h2>INTERVAL</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval INTERVAL(int u, int v);</tt></div>
 </div>
@@ -495,21 +500,21 @@ the <tt class="docutils literal">interval</tt> API.</p>
 value. Values u and v are considered to be included in the interval.</p>
 </div>
 <div class="section" id="intervalcopy">
-<h2>3.2. IntervalCopy</h2>
+<h2>IntervalCopy</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalCopy(Interval x);</tt></div>
 </div>
 <p>Return a copy of the given input interval.</p>
 </div>
 <div class="section" id="intervalempty">
-<h2>3.3. IntervalEmpty</h2>
+<h2>IntervalEmpty</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalEmpty(void);</tt></div>
 </div>
 <p>Return an empty interval; interval [1,0] is produced.</p>
 </div>
 <div class="section" id="intervaluniverse">
-<h2>3.4. IntervalUniverse</h2>
+<h2>IntervalUniverse</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalUniverse(int bw, ArithType ztyp);</tt></div>
 </div>
@@ -517,7 +522,7 @@ value. Values u and v are considered to be included in the interval.</p>
 and for the specified bitwidth (bw).</p>
 </div>
 <div class="section" id="intervalclamp">
-<h2>3.5. IntervalClamp</h2>
+<h2>IntervalClamp</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalClamp(Interval x, int lo, int hi);</tt></div>
 </div>
@@ -525,14 +530,14 @@ and for the specified bitwidth (bw).</p>
 and higher (hi) bounds.</p>
 </div>
 <div class="section" id="intervaladd">
-<h2>3.6 IntervalAdd</h2>
+<h2>IntervalAdd</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalAdd(Interval x, Interval y);</tt></div>
 </div>
 <p>Return the interval of the result of adding the intervals of two integers.</p>
 </div>
 <div class="section" id="intervalsub">
-<h2>3.7 IntervalSub</h2>
+<h2>IntervalSub</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalSub(Interval x, Interval y);</tt></div>
 </div>
@@ -540,14 +545,14 @@ and higher (hi) bounds.</p>
 intervals.</p>
 </div>
 <div class="section" id="intervalneg">
-<h2>3.8 IntervalNeg</h2>
+<h2>IntervalNeg</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalNeg(Interval x);</tt></div>
 </div>
 <p>Return a negated interval by negating the supremum and infimum fields.</p>
 </div>
 <div class="section" id="intervalmul">
-<h2>3.9 IntervalMul</h2>
+<h2>IntervalMul</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalMul(Interval x, Interval y, ArithType xtyp, ArithType ytyp);</tt></div>
 </div>
@@ -556,7 +561,7 @@ intervals. The result is not truncated. xtyp, ytyp provide the arithmetic
 representation type for x and y, respectively.</p>
 </div>
 <div class="section" id="intervaldiv">
-<h2>3.10 IntervalDiv</h2>
+<h2>IntervalDiv</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalDiv(Interval x, Interval y, ArithType xtyp, ArithType ytyp);</tt></div>
 </div>
@@ -565,7 +570,7 @@ two integer intervals. xtyp, ytyp provide the arithmetic representation type for
 x and y, respectively.</p>
 </div>
 <div class="section" id="intervalmod">
-<h2>3.11 IntervalMod</h2>
+<h2>IntervalMod</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalMod(Interval x, Interval y, ArithType xtyp);</tt></div>
 </div>
@@ -573,7 +578,7 @@ x and y, respectively.</p>
 intervals. xtyp provides the arithmetic representation type for x.</p>
 </div>
 <div class="section" id="intervalmux">
-<h2>3.12 IntervalMux</h2>
+<h2>IntervalMux</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalMux(Interval x, Interval y);</tt></div>
 </div>
@@ -589,7 +594,7 @@ relop is a relational operator:</p>
 </ul>
 </div>
 <div class="section" id="intervalset">
-<h2>3.13 IntervalSet</h2>
+<h2>IntervalSet</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalSet(Interval x, Interval y);</tt></div>
 </div>
@@ -605,35 +610,35 @@ relational operator:</p>
 </ul>
 </div>
 <div class="section" id="intervaland">
-<h2>3.14 IntervalAnd</h2>
+<h2>IntervalAnd</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalAnd(Interval x, Interval y);</tt></div>
 </div>
 <p>Return the interval of the result of z = x AND y.</p>
 </div>
 <div class="section" id="intervalior">
-<h2>3.15 IntervalIor</h2>
+<h2>IntervalIor</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalIor(Interval x, Interval y);</tt></div>
 </div>
 <p>Return the interval of the result of z = x IOR y.</p>
 </div>
 <div class="section" id="intervalxor">
-<h2>3.16 IntervalXor</h2>
+<h2>IntervalXor</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalXor(Interval x, Interval y);</tt></div>
 </div>
 <p>Return the interval of the result of z = x XOR y.</p>
 </div>
 <div class="section" id="intervalnot">
-<h2>3.17 IntervalNot</h2>
+<h2>IntervalNot</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalNot(Interval x);</tt></div>
 </div>
 <p>Return the interval of the result of z = NOT x.</p>
 </div>
 <div class="section" id="intervalexpinteger">
-<h2>3.18 IntervalExpInteger</h2>
+<h2>IntervalExpInteger</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalExpInteger(Interval x, int n);</tt></div>
 </div>
@@ -641,14 +646,14 @@ relational operator:</p>
 n is an integer and its interval representation is [n,n].</p>
 </div>
 <div class="section" id="intervalsqrt">
-<h2>3.19 IntervalSqrt</h2>
+<h2>IntervalSqrt</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalSqrt(Interval x);</tt></div>
 </div>
 <p>Return the interval of the result of z = sqrt(x).</p>
 </div>
 <div class="section" id="intervalabs">
-<h2>3.20 IntervalAbs</h2>
+<h2>IntervalAbs</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalAbs(Interval x);</tt></div>
 </div>
@@ -656,7 +661,7 @@ n is an integer and its interval representation is [n,n].</p>
 x: z = abs(x).</p>
 </div>
 <div class="section" id="intervalmax">
-<h2>3.21 IntervalMax</h2>
+<h2>IntervalMax</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalMax(Interval x, Interval y);</tt></div>
 </div>
@@ -664,7 +669,7 @@ x: z = abs(x).</p>
 x and y: z = max(x, y).</p>
 </div>
 <div class="section" id="intervalmin">
-<h2>3.22 IntervalMin</h2>
+<h2>IntervalMin</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalMin(Interval x, Interval y);</tt></div>
 </div>
@@ -672,7 +677,7 @@ x and y: z = max(x, y).</p>
 x and y: z = min(x, y).</p>
 </div>
 <div class="section" id="intervalunion">
-<h2>3.23 IntervalUnion</h2>
+<h2>IntervalUnion</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalUnion(Interval x, Interval y);</tt></div>
 </div>
@@ -681,7 +686,7 @@ contiguous interval) of intervals x and y. The union operator formally
 produces two distinct intervals.</p>
 </div>
 <div class="section" id="intervalintersection">
-<h2>3.24 IntervalIntersection</h2>
+<h2>IntervalIntersection</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalIntersection(Interval x, Interval y);</tt></div>
 </div>
@@ -690,7 +695,7 @@ x and y is the empty interval, the [1,0] interval (the default empty
 interval) is returned.</p>
 </div>
 <div class="section" id="valueisininterval">
-<h2>3.24 ValueIsInInterval</h2>
+<h2>ValueIsInInterval</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">int ValueIsInInterval(Interval x, int v);</tt></div>
 </div>
@@ -698,7 +703,7 @@ interval) is returned.</p>
 Returns 1 if v is in x; 0 otherwise.</p>
 </div>
 <div class="section" id="intervalisempty">
-<h2>3.25 IntervalIsEmpty</h2>
+<h2>IntervalIsEmpty</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">int IntervalIsEmpty(Interval x);</tt></div>
 </div>
@@ -706,7 +711,7 @@ Returns 1 if v is in x; 0 otherwise.</p>
 Returns 1 if the interval x is empty; 0 otherwise.</p>
 </div>
 <div class="section" id="intervalispositive">
-<h2>3.26 IntervalIsPositive</h2>
+<h2>IntervalIsPositive</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">int IntervalIsPositive(Interval x);</tt></div>
 </div>
@@ -715,7 +720,7 @@ domain of positive integers). The interval may contain integer ZERO.
 Returns 1 if the interval x is positive; 0 otherwise.</p>
 </div>
 <div class="section" id="intervalisnegative">
-<h2>3.27 IntervalIsNegative</h2>
+<h2>IntervalIsNegative</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">int IntervalIsNegative(Interval x);</tt></div>
 </div>
@@ -724,7 +729,7 @@ domain of negative integers). The interval may contain integer ZERO.
 Returns 1 if the interval x is negative; 0 otherwise.</p>
 </div>
 <div class="section" id="valuetointerval">
-<h2>3.28 ValueToInterval</h2>
+<h2>ValueToInterval</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval ValueToInterval(int v);</tt></div>
 </div>
@@ -732,7 +737,7 @@ Returns 1 if the interval x is negative; 0 otherwise.</p>
 Returns the computed interval.</p>
 </div>
 <div class="section" id="intervalbalanced">
-<h2>3.29 IntervalBalanced</h2>
+<h2>IntervalBalanced</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntervalBalanced(Interval x, ArithType xtyp);</tt></div>
 </div>
@@ -743,7 +748,7 @@ signed integer arithmetic.
 xtyp provides the arithmetic type for the assumed integer arithmetic.</p>
 </div>
 <div class="section" id="intervalisbalanced">
-<h2>3.30 IntervalIsBalanced</h2>
+<h2>IntervalIsBalanced</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">int IntervalIsBalanced(Interval x, ArithType xtyp);</tt></div>
 </div>
@@ -752,7 +757,7 @@ or <tt class="docutils literal"><span class="pre">[-2^(n-1),2^(n-1)+1]</span></t
 Returns 1 if the interval x is balanced; 0 otherwise.</p>
 </div>
 <div class="section" id="intervalissymmetric">
-<h2>3.31 IntervalIsSymmetric</h2>
+<h2>IntervalIsSymmetric</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">int IntervalIsSymmetric(Interval x);</tt></div>
 </div>
@@ -763,7 +768,7 @@ Returns 1 if the interval x is symmetric; 0 otherwise.</p>
 should be carefully designed.</p>
 </div>
 <div class="section" id="integerbitwidthtointerval">
-<h2>3.32 IntegerBitwidthToInterval</h2>
+<h2>IntegerBitwidthToInterval</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">Interval IntegerBitwidthToInterval(int n, ArithType xtyp);</tt></div>
 </div>
@@ -774,7 +779,7 @@ integer.
 xtyp provides the arithmetic type for the assumed integer.</p>
 </div>
 <div class="section" id="intervaltointegerbitwidth">
-<h2>3.33 IntervalToIntegerBitwidth</h2>
+<h2>IntervalToIntegerBitwidth</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">int IntervalToIntegerBitwidth(Interval x, ArithType xtyp);</tt></div>
 </div>
@@ -783,7 +788,7 @@ for the representation of signed (2's complement) or unsigned integers.
 xtyp provides the arithmetic type for the assumed integer representation.</p>
 </div>
 <div class="section" id="intervalprint">
-<h2>3.34 IntervalPrint</h2>
+<h2>IntervalPrint</h2>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">void IntervalPrint(FILE *outfile, Interval x);</tt></div>
 </div>
@@ -806,8 +811,8 @@ this application as follows:</p>
 <p>Executing the application will produce a stream of diagnostic messages to
 standard output.</p>
 </div>
-<div class="section" id="prerequisities">
-<h1>5. Prerequisities</h1>
+<div class="section" id="prerequisites">
+<h1>5. Prerequisites</h1>
 <ul>
 <li><p class="first">Standard UNIX-based tools (tested with gcc-4.6.2 on MinGW/x86 and gcc-4.8.2
 on Cygwin/x86/Windows 7)</p>
