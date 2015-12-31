@@ -2,6 +2,7 @@
  * Filename: interval.h
  * Purpose : Interval ADT definitions and function prototypes.
  * Author  : Nikolaos Kavvadias (C) 2009, 2010, 2011, 2012, 2013, 2014, 2015
+ *                                  2016
  * Date    : 28-Oct-2014
  * Revision: 0.2.1 (14/10/28)
  *           Added names to prototype parameters.

@@ -2,6 +2,7 @@
  * Filename: test-interval.c
  * Purpose : Test the interval ADT implementation.
  * Author  : Nikolaos Kavvadias (C) 2009, 2010, 2011, 2012, 2013, 2014, 2015
+ *                                  2016
  * Date    : 20-Sep-2014
  * Revision: 0.2.0 (20/09/14)
  *           Minor addition to utilize unused variable c.
